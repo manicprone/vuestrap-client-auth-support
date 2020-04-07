@@ -34,8 +34,6 @@ allowing you to rapidly compose powerful Vue application boilerplates.
 
 The *Client Auth Support* Vuestrap provides persisent user authentication sessions within a Vue client application.
 
-> If you want to support user auth for your isomorphic (server-side & client-side) application, use `vuestrap-iso-auth-support` instead.
-
 
 ## Prerequisites
 
@@ -57,21 +55,25 @@ To harness the instant implementation of auth support, vue-router is needed:
 
 ### Install
 
+#### with yarn:
+
 ``` sh
-$ npm install git+ssh://git@gitlab.com/insight-robotics/vuestrap-client-auth-support.git --save
+$ yarn add vuestrap-client-auth-support
 ```
 
-> The full path is required, since this package is a private repo.
-> To pin to a specific version, you can append `#<tag_name>` to the end of this path.
-> For example: `git+ssh://git@gitlab.com/insight-robotics/vuestrap-client-auth-support.git#v0.0.16`
+#### with npm:
+
+``` sh
+$ npm install vuestrap-client-auth-support --save
+```
 
 ### Bootstrap Your Vue App
 
 ``` javascript
-import Vue from 'vue';
-import store from './store'; // your vuex store instance
-import router from './router'; // your vue-router instance
-import ClientAuthSupport from 'vuestrap-client-auth-support';
+import Vue from 'vue'
+import store from './store' // your vuex store instance
+import router from './router' // your vue-router instance
+import ClientAuthSupport from 'vuestrap-client-auth-support'
 
 Vue.use(ClientAuthSupport, {
   store,
@@ -79,7 +81,7 @@ Vue.use(ClientAuthSupport, {
   authenticator: <my_authenticator>,
   persistType: 'local',
   tokenName: 'user-auth-token',
-});
+})
 ```
 
 ## Namespace
@@ -97,7 +99,7 @@ The following options are available when bootstrapping the app.
 | ---------------- | --------- | ----------- |
 | store            | Yes       | The Vuex instance. |
 | router           | No        | The Vue-Router instance. If provided, full auth support logic will be automatically configured. If a router instance is not provided, the store actions must be leveraged to implement auth support in your app. |
-| authenticator    | Yes       | Compatible authentication logic (see [Authentictors][section-authenticators]). |
+| authenticator    | Yes       | Compatible authentication logic (see [Authenticators][section-authenticators]). |
 | persistType      | No        | A string identifier, specifying the method of persistence to use for the token. Available values: `'local'` (default), `'session'`, `'cookie'`. |
 | tokenName        | No        | The name to use for the persisted auth token. If not specified, the default token name used is `user-auth-token`. |
 | directUnAuthedTo | No        | The route name to direct un-authenticated traffic, when a route is guarded using the `requiresAuth` meta property. Default value: `'login'`. |
@@ -212,7 +214,7 @@ new Router({
       meta: { requiresAuth: true }, // the user must be logged-in to view
     },
   ],
-});
+})
 ```
 
 
@@ -261,7 +263,7 @@ new Router({
 To provide a fully working Vue app environment to test and develop the plugin, a simple Vue application will build (the plugin & the app bundle) and serve when running:
 
 ``` sh
-$ npm run dev
+$ yarn dev
 ```
 
 By default, the development app environment will hot-reload changes and will run on `localhost:3301`.
@@ -273,9 +275,9 @@ By default, the development app environment will hot-reload changes and will run
 The plugin uses [ESLint][link-eslint-site] for source code linting. The linting will run automatically on `git commit`.
 
 ``` sh
-$ npm run lint
+$ yarn lint
 ```
-
+> You can run with flag `--fix`, or shortcut command *flint*, to trigger auto fixing (e.g. `yarn flint`).
 
 ### Dev Test
 
@@ -283,15 +285,15 @@ The plugin uses [Mocha][link-mocha-site] for the testing framework,
 and [Chai][link-chai-site] and [Chai-HTTP][link-chai-http-site] for its assertions.
 
 ``` sh
-$ npm run test
+$ yarn test
 ```
 
 ### Dev Build
 
-The plugin is automatically built on `npm publish`. But, you can manually build the plugin using:
+The plugin is automatically built on `yarn publish`. But, you can manually build the plugin using:
 
 ``` sh
-$ npm run build-plugin
+$ yarn build-plugin
 ```
 
 
