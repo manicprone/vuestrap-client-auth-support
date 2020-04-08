@@ -10,7 +10,7 @@
       <div class="login-message">
         <span>{{ loginText }}</span>
       </div>
-      <local-account-login class="login-link" v-on:login="performLogin" />
+      <local-account-login class="login-link" @login="performLogin" />
     </div>
 
   </div>
@@ -22,16 +22,16 @@ export default {
 
   computed: {
     isAuthenticatedSession() {
-      return this.$store.getters['auth/isAuthenticated'];
+      return this.$store.getters['auth/isAuthenticated']
     },
     user() {
-      return this.$store.getters['auth/userInfo'];
+      return this.$store.getters['auth/userInfo']
     },
     loginText() {
-      return 'Login with your account';
+      return 'Login with your account'
     },
     welcomeMessageText() {
-      return (this.user) ? `Welcome, ${this.user.display_name} !` : 'Welcome !';
+      return (this.user) ? `Welcome, ${this.user.display_name} !` : 'Welcome !'
     },
   },
 
@@ -39,15 +39,14 @@ export default {
     performLogin(creds) {
       return this.$store.dispatch('auth/loginUser', creds)
         .then((sessionInfo) => {
-          console.log('Logged-in with session info:', sessionInfo);
-          return this.$router.push({ name: 'private' });
+          console.log('Logged-in with session info:', sessionInfo)
         })
         .catch((error) => {
-          console.log('Error logging in =>', error);
-        });
+          console.log('Error logging in =>', error)
+        })
     },
   },
-};
+}
 </script>
 
 <style scoped>

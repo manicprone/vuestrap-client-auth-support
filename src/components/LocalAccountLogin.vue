@@ -27,7 +27,7 @@ export default {
     return {
       activeUsername: this.username,
       activePassword: this.password,
-    };
+    }
   },
 
   props: {
@@ -43,10 +43,10 @@ export default {
 
   methods: {
     login() {
-      this.$emit('login', { username: this.activeUsername, password: this.activePassword });
+      this.$emit('login', { username: this.activeUsername, password: this.activePassword })
     },
   },
-};
+}
 </script>
 
 <style scoped>

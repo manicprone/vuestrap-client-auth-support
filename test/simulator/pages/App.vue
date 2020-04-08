@@ -9,7 +9,7 @@
       </div>
       <div class="controls">
         <template v-if="isAuthenticatedSession">
-          <div class="btn-logout" v-on:click="performLogout">Logout</div>
+          <div class="btn-logout" @click="performLogout">Logout</div>
         </template>
       </div>
       <div class="clear" />
@@ -24,7 +24,7 @@
 </template>
 
 <script>
-import AppNavigation from '../components/AppNavigation.vue';
+import AppNavigation from '../components/AppNavigation.vue'
 
 export default {
   name: 'App',
@@ -35,17 +35,17 @@ export default {
 
   computed: {
     pluginName() {
-      return this.$store.getters['auth/pluginName'];
+      return this.$store.getters['auth/pluginName']
     },
     isAuthenticatedSession() {
-      return this.$store.getters['auth/isAuthenticated'];
+      return this.$store.getters['auth/isAuthenticated']
     },
   },
 
   methods: {
     performLogout() {
       this.$store.dispatch('auth/logoutUser')
-        .then(() => this.$router.push('/'));
+        .then(() => this.$router.push('/'))
     },
   },
 }

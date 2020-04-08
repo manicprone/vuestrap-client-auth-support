@@ -1,20 +1,20 @@
 <template>
   <div class="app-navigation">
 
-    <router-link v-bind:to="{ name: 'home' }">
-      <div v-bind:class="generateNavItemClasses('home')">
+    <router-link :to="{ name: 'home' }">
+      <div :class="generateNavItemClasses('home')">
         <span>Home Page</span>
       </div>
     </router-link>
 
-    <router-link v-bind:to="{ name: 'public' }">
-      <div v-bind:class="generateNavItemClasses('public')">
+    <router-link :to="{ name: 'public' }">
+      <div :class="generateNavItemClasses('public')">
         <span>Public Page</span>
       </div>
     </router-link>
 
-    <router-link v-bind:to="{ name: 'private' }">
-      <div flat v-bind:class="generateNavItemClasses('private')">
+    <router-link :to="{ name: 'private' }">
+      <div flat :class="generateNavItemClasses('private')">
         <span>Private Page</span>
       </div>
     </router-link>
@@ -30,10 +30,10 @@ export default {
     generateNavItemClasses(routeName) {
       return (this.$route.name === routeName)
         ? 'nav-item selected-nav-item'
-        : 'nav-item';
+        : 'nav-item'
     },
   },
-};
+}
 </script>
 
 <style scoped>
