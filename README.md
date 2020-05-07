@@ -253,7 +253,15 @@ new Router({
 
 ## Lifecycle
 
-[TBC - Diagram illustrating the authentication lifecycle]
+The operations responsible for establishing and managing authenticated states are described below.
+
+### loginUser
+
+![loginUser](src/assets/loginUser.svg)
+
+### validateSession
+
+![validateSession](src/assets/validateSession.svg)
 
 
 ## For Developers
