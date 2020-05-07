@@ -34,10 +34,6 @@ allowing you to rapidly compose powerful Vue application boilerplates.
 
 The *Client Auth Support* Vuestrap provides persisent user authentication sessions within a Vue client application.
 
-#### loginUser
-
-![loginUser](src/assets/loginUser.svg)
-
 
 ## Prerequisites
 
@@ -257,7 +253,15 @@ new Router({
 
 ## Lifecycle
 
-[TBC - Diagram illustrating the authentication lifecycle]
+The operations responsible for establishing and managing authenticated states are described below.
+
+### loginUser
+
+![loginUser](src/assets/loginUser.svg)
+
+### validateSession
+
+![validateSession](src/assets/validateSession.svg)
 
 
 ## For Developers
