@@ -20,7 +20,7 @@
     "build-plugin"
   ],
   "dependencies": {
-    "lodash": "4.17.15"
+    "lodash": "4.17.19"
   },
   "devDependencies": {
     "authenticator-client-mock-js": "0.0.8",
